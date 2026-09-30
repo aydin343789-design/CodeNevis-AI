@@ -30,7 +30,7 @@
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .bot{background:#12261a;border:1px solid #1e5a3a;color:#d6ffd6;border-top-right-radius:4px;margin-right:0;margin-left:auto;text-align:right}
   .user{background:#004d2b;color:#eaffea;border-top-left-radius:4px;margin-left:0;margin-right:auto;text-align:right}
-  .msg pre{background:#000;color:#0f0;padding:10px;border-radius:8px;margin-top:8px;overflow-x:auto;font-size:13px;border:1px solid #1e5a3a}
+  .msg pre{background:#0c0c0c;color:#d4d4d4;padding:12px 14px;border-radius:8px;margin-top:8px;overflow-x:auto;font-size:13.5px;border:1px solid #2a2a2a;border-left:3px solid #00AEEF;box-shadow:0 4px 12px rgba(0,0,0,.4)}
   .cursor::after{content:'▊';color:#00ff88;animation:blink 1s infinite}
   @keyframes blink{50%{opacity:0}}
 
@@ -304,41 +304,39 @@ header [style*="#008000"] {
 }
 </style>
 
-<style id="cn-exact-text-colors">
-/* فقط رنگ خودِ نوشته‌های مثال‌ها و گزینه‌های کوییز؛ بدون تغییر محتوای HTML */
-.quiz button,
-.quiz button *,
-.quiz .ltr-msg {
-  color: #19C6FF !important;
-  background: #071B14 !important;
-  font-weight: 800 !important;
-  text-shadow: 0 0 4px rgba(25,198,255,.28);
+<style id="cn-terminal-syntax">
+/* ===== Terminal Syntax Highlighting for Code Examples ===== */
+.msg pre.cn-example-code {
+  background: #0c0c0c !important;
+  color: #d4d4d4 !important;
+  padding: 12px 14px !important;
+  border-radius: 8px !important;
+  border: 1px solid #2a2a2a !important;
+  border-left: 3px solid #00AEEF !important;
+  font-family: 'Fira Code', Consolas, Menlo, monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.7 !important;
+  direction: ltr !important;
+  text-align: left !important;
+  overflow-x: auto !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.4) !important;
+  white-space: pre !important;
 }
-
-/* متن کد مثال‌ها: سبز روشن */
-.example-code, .code-example, .lesson-example,
-.example-code *, .code-example *, .lesson-example *,
-.msg pre {
-  color: #39F27D !important;
-  font-weight: 800 !important;
-}
-
-/* کد مثال‌ها: سبز و قرمز روشن */
-.msg pre.cn-example-code,
-.msg pre.cn-example-code * {
-  color: #39F27D !important;
-  font-weight: 800 !important;
-}
-.msg pre.cn-example-code .cn-green {
-  color: #39F27D !important;
-  font-weight: 900 !important;
-  text-shadow: 0 0 5px rgba(57,242,125,.35);
-}
-.msg pre.cn-example-code .cn-red {
-  color: #FF5267 !important;
-  font-weight: 900 !important;
-  text-shadow: 0 0 5px rgba(255,82,103,.35);
-}
+.msg pre.cn-example-code .cn-keyword   { color: #C586C0 !important; font-weight: 700 !important; } /* کلیدواژه‌ها */
+.msg pre.cn-example-code .cn-string    { color: #CE9178 !important; font-weight: 700 !important; } /* رشته‌ها */
+.msg pre.cn-example-code .cn-comment   { color: #6A9955 !important; font-style: italic !important; font-weight: 600 !important; } /* کامنت‌ها */
+.msg pre.cn-example-code .cn-number    { color: #B5CEA8 !important; font-weight: 700 !important; } /* اعداد */
+.msg pre.cn-example-code .cn-function  { color: #DCDCAA !important; font-weight: 700 !important; } /* توابع */
+.msg pre.cn-example-code .cn-variable  { color: #9CDCFE !important; font-weight: 700 !important; } /* متغیرها */
+.msg pre.cn-example-code .cn-operator  { color: #D4D4D4 !important; font-weight: 700 !important; } /* عملگرها */
+.msg pre.cn-example-code .cn-class     { color: #4EC9B0 !important; font-weight: 700 !important; } /* کلاس‌ها */
+.msg pre.cn-example-code .cn-builtin   { color: #569CD6 !important; font-weight: 700 !important; } /* توابع داخلی */
+.msg pre.cn-example-code .cn-decorator { color: #DCDCAA !important; font-weight: 700 !important; } /* دکوراتورها */
+.msg pre.cn-example-code .cn-param     { color: #9CDCFE !important; font-weight: 700 !important; } /* پارامترها */
+.msg pre.cn-example-code .cn-constant  { color: #4FC1FF !important; font-weight: 700 !important; } /* ثابت‌ها */
+/* کلاس‌های قدیمی برای سازگاری */
+.msg pre.cn-example-code .cn-green     { color: #39F27D !important; font-weight: 800 !important; }
+.msg pre.cn-example-code .cn-red       { color: #FF5267 !important; font-weight: 800 !important; }
 </style>
 
 <style id="cn-luxury-ui-theme">
@@ -449,26 +447,32 @@ header button,.app-header button,.topbar button,.navbar button{
   --lx-red2:#E06A78;
 }
 
-/* فقط پس‌زمینهٔ داخل مثال‌های کد حذف می‌شود؛ رنگ متن مثال‌ها حفظ می‌شود */
+/* ===== کد مثال‌ها با استایل ترمینال واقعی ===== */
 .msg pre.cn-example-code{
-  background:transparent !important;
-  border:0 !important;
-  border-left:2px solid rgba(216,181,106,.72) !important;
-  border-radius:2px !important;
-  box-shadow:none !important;
-  padding:10px 12px !important;
+  background:#0c0c0c !important;
+  border:1px solid #2a2a2a !important;
+  border-left:3px solid #D8B56A !important;
+  border-radius:8px !important;
+  box-shadow:0 4px 12px rgba(0,0,0,.4) !important;
+  padding:12px 14px !important;
   margin-top:8px !important;
-  color:#39F27D !important;
-  text-shadow:0 0 7px rgba(57,242,125,.18) !important;
+  color:#d4d4d4 !important;
+  text-shadow:none !important;
 }
-.msg pre.cn-example-code .cn-green{
-  color:#39F27D !important;
-  text-shadow:0 0 7px rgba(57,242,125,.30) !important;
-}
-.msg pre.cn-example-code .cn-red{
-  color:#FF5267 !important;
-  text-shadow:0 0 7px rgba(255,82,103,.30) !important;
-}
+.msg pre.cn-example-code .cn-keyword   { color:#C586C0 !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-string    { color:#CE9178 !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-comment   { color:#6A9955 !important; font-style:italic !important; font-weight:600 !important; }
+.msg pre.cn-example-code .cn-number    { color:#B5CEA8 !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-function  { color:#DCDCAA !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-variable  { color:#9CDCFE !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-operator  { color:#D4D4D4 !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-class     { color:#4EC9B0 !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-builtin   { color:#569CD6 !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-decorator { color:#DCDCAA !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-param     { color:#9CDCFE !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-constant  { color:#4FC1FF !important; font-weight:700 !important; }
+.msg pre.cn-example-code .cn-green     { color:#39F27D !important; font-weight:800 !important; }
+.msg pre.cn-example-code .cn-red       { color:#FF5267 !important; font-weight:800 !important; }
 
 /* کل منوی سه‌خط */
 #drawer{
@@ -622,8 +626,42 @@ header button,.app-header button,.topbar button,.navbar button{
    The theme layer changes presentation only; no lesson/chat state is touched. */
 :root{--theme-accent:#D8B56A;--theme-accent-2:#F3D58F;--theme-highlight:#16C8B2;--theme-bg:#070909;--theme-panel:#101414;--theme-panel-2:#151B1B;--theme-text:#F8F2E6;--theme-muted:#C9C0AF;--theme-danger:#B94A5A;--theme-code:#F3D58F}
 body[data-theme="luxury"],body:not([data-theme]){--theme-accent:#D8B56A;--theme-accent-2:#F3D58F;--theme-highlight:#4B8BFF;--theme-extra:#7A5CFF;--theme-bg:#070909;--theme-panel:#101414;--theme-panel-2:#151B1B;--theme-text:#F8F2E6;--theme-muted:#C9C0AF;--theme-danger:#B94A5A;--theme-code:#F3D58F}
-body[data-theme="modern"]{--theme-accent:#2878FF;--theme-accent-2:#8DB7FF;--theme-highlight:#20D9C4;--theme-extra:#8B5CF6;--theme-bg:#07111F;--theme-panel:#0D1C31;--theme-panel-2:#132A45;--theme-text:#EDF5FF;--theme-muted:#AFC5DE;--theme-danger:#E05A76;--theme-code:#8DB7FF}
-body[data-theme="classic"]{--theme-accent:#B44A5A;--theme-accent-2:#F1C27D;--theme-highlight:#D59B45;--theme-extra:#6F3048;--theme-bg:#211617;--theme-panel:#322122;--theme-panel-2:#472C2C;--theme-text:#FFF5E5;--theme-muted:#D9C1AA;--theme-danger:#8F2639;--theme-code:#F1C27D}
+body[data-theme="modern"]{
+  --theme-accent:#0066CC;
+  --theme-accent-2:#7C3AED;
+  --theme-highlight:#FF7A45;
+  --theme-extra:#06B6D4;
+  --theme-bg:#F0F4FF;
+  --theme-panel:#FFFFFF;
+  --theme-panel-2:#E8F0FE;
+  --theme-text:#0A1B2E;
+  --theme-muted:#5A6F85;
+  --theme-danger:#E05252;
+  --theme-code:#0066CC;
+  --theme-fun-pink:#EC4899;
+  --theme-fun-green:#10B981;
+  --theme-fun-yellow:#F59E0B;
+  --theme-fun-purple:#8B5CF6;
+  --theme-fun-orange:#FF7A45;
+}
+body[data-theme="classic"]{
+  --theme-accent:#B8325A;
+  --theme-accent-2:#F2A65A;
+  --theme-highlight:#16D4C0;
+  --theme-extra:#7A1F3D;
+  --theme-bg:#151013;
+  --theme-panel:#1F171B;
+  --theme-panel-2:#2E2429;
+  --theme-text:#F5EBEE;
+  --theme-muted:#BFA9B0;
+  --theme-danger:#E05252;
+  --theme-code:#F2A65A;
+  --theme-fun-pink:#EC4899;
+  --theme-fun-green:#10B981;
+  --theme-fun-yellow:#F5C518;
+  --theme-fun-purple:#A855F7;
+  --theme-fun-orange:#FF7A45;
+}
 html,body{background:var(--theme-bg);color:var(--theme-text)}
 #app{background:linear-gradient(180deg,var(--theme-bg),var(--theme-panel))}
 header{background:linear-gradient(120deg,var(--theme-bg) 0%,var(--theme-panel-2) 48%,var(--theme-extra) 100%) !important;border-bottom-color:color-mix(in srgb,var(--theme-accent) 70%,transparent) !important}
@@ -642,15 +680,28 @@ footer{background:var(--theme-panel) !important;border-top-color:color-mix(in sr
 #drawer .progress-item,#drawer .glossary-item,#drawer .lesson-result,#drawer .badge,#drawer .certificate-item{background:var(--theme-panel) !important;border-color:color-mix(in srgb,var(--theme-accent) 30%,transparent) !important;color:var(--theme-text) !important}
 #drawer .xp-row,#drawer .g-term b,#drawer .glossary-item b,#drawer .certificate-item .cert-lang{color:var(--theme-accent-2) !important}
 #drawer .xp-bar-fill{background:linear-gradient(90deg,var(--theme-accent),var(--theme-highlight)) !important}
-.msg pre.cn-example-code,.msg pre.cn-example-code .cn-green{color:var(--theme-code) !important;text-shadow:none !important}
-.msg pre.cn-example-code .cn-red{color:var(--theme-highlight) !important;text-shadow:none !important}
+.msg pre.cn-example-code{background:#0c0c0c !important;color:#d4d4d4 !important;border:1px solid #2a2a2a !important;border-left:3px solid var(--theme-accent) !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-keyword{color:#C586C0 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-string{color:#CE9178 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-comment{color:#6A9955 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-number{color:#B5CEA8 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-function{color:#DCDCAA !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-variable{color:#9CDCFE !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-operator{color:#D4D4D4 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-class{color:#4EC9B0 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-builtin{color:#569CD6 !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-decorator{color:#DCDCAA !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-param{color:#9CDCFE !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-constant{color:#4FC1FF !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-green{color:#39F27D !important;text-shadow:none !important}
+.msg pre.cn-example-code .cn-red{color:#FF5267 !important;text-shadow:none !important}
 #overlay{background:rgba(0,0,0,.70) !important}
 .theme-settings{padding:10px;border:1px solid color-mix(in srgb,var(--theme-accent) 30%,transparent);border-radius:12px;background:color-mix(in srgb,var(--theme-panel) 85%,transparent)}
 .theme-settings label{display:block;color:var(--theme-muted);font-size:12px;margin-bottom:6px}
 #themeSelect{width:100%;padding:9px;border-radius:9px;font-family:inherit;font-size:13px;outline:none}
 .theme-hint{color:var(--theme-muted);font-size:11px;line-height:1.7;margin-top:7px}
-body[data-theme="modern"] #splash{background:radial-gradient(circle at 18% 20%,#2878FF44,transparent 32%),radial-gradient(circle at 82% 30%,#8B5CF655,transparent 34%),linear-gradient(145deg,#050B14,#10355A 58%,#073D4A) !important}
-body[data-theme="classic"] #splash{background:radial-gradient(circle at 20% 20%,#B44A5A66,transparent 32%),radial-gradient(circle at 82% 30%,#D59B4555,transparent 34%),linear-gradient(145deg,#1C1012,#6D3038 58%,#3A2028) !important}
+body[data-theme="modern"] #splash{background:radial-gradient(circle at 18% 20%,#3399FF44,transparent 32%),radial-gradient(circle at 82% 30%,#00D4FF55,transparent 34%),linear-gradient(145deg,#F5F9FF,#D6E6F7 58%,#EAF3FF) !important}
+body[data-theme="classic"] #splash{background:radial-gradient(circle at 20% 20%,#8C8C8C66,transparent 32%),radial-gradient(circle at 82% 30%,#B8B8B855,transparent 34%),linear-gradient(145deg,#131313,#262626 58%,#4A4A4A) !important}
 body[data-theme="luxury"] #splash{background:radial-gradient(circle at 20% 20%,#D8B56A44,transparent 30%),radial-gradient(circle at 82% 30%,#4B8BFF44,transparent 32%),linear-gradient(145deg,#070909,#272015 58%,#11183A) !important}
 body[data-theme="modern"] .logo-box{border-color:#8DB7FF !important;color:#8DB7FF !important;box-shadow:0 0 40px #4B8BFF55 !important}
 body[data-theme="classic"] .logo-box{border-color:#E7B36A !important;color:#E7B36A !important;box-shadow:0 0 40px #B44A5A66 !important}
@@ -661,6 +712,47 @@ body[data-theme="luxury"] .logo-box{border-color:#D8B56A !important;color:#D8B56
 .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}.dash-grid span{padding:6px;border:1px solid color-mix(in srgb,var(--theme-accent) 24%,transparent);border-radius:8px;background:var(--theme-panel);text-align:center}.dash-grid strong{display:block;color:var(--theme-accent-2);font-size:14px}.dash-line{padding:7px 9px;border-radius:8px;background:var(--theme-panel)}.recommendation{margin-top:7px;padding:8px;border-radius:8px;background:color-mix(in srgb,var(--theme-highlight) 12%,var(--theme-panel));border:1px solid color-mix(in srgb,var(--theme-highlight) 35%,transparent);color:var(--theme-text)}.content-version{font-size:10px;color:var(--theme-muted);margin-top:7px}.drawer-list-empty{font-size:12px;color:var(--theme-muted);padding:6px 2px}.drawer-link{display:flex;flex-direction:column;gap:2px;margin-bottom:6px;padding:8px;border:1px solid color-mix(in srgb,var(--theme-accent) 28%,transparent);border-radius:8px;background:var(--theme-panel);cursor:pointer}.drawer-link small{color:var(--theme-muted);font-size:10px}.drawer-link:hover{border-color:var(--theme-highlight)}.coach-hint{font-size:11px;margin-bottom:6px}.coach-output{margin-top:7px;color:var(--theme-text);background:var(--theme-panel);border-radius:8px;padding:7px;min-height:12px}.lesson-star{display:block;margin-top:10px;padding:6px 10px;border:1px solid color-mix(in srgb,var(--theme-accent) 55%,transparent);border-radius:8px;background:transparent;color:var(--theme-accent-2);font-family:inherit;cursor:pointer}.lesson-star.active{background:color-mix(in srgb,var(--theme-accent) 20%,transparent)}
 </style>
 <style id="codenevis-accessible-burgundy-themes">
+/* ===== Modern: آبی روشن و پرانرژی ===== */
+body[data-theme="modern"]{
+  --theme-accent:#0066CC;--theme-accent-2:#3399FF;--theme-highlight:#00D4FF;--theme-extra:#004C99;
+  --theme-bg:#F5F9FF;--theme-panel:#FFFFFF;--theme-panel-2:#EAF3FF;--theme-border:#D6E6F7;
+  --theme-text:#0A1B2E;--theme-muted:#5A6F85;--theme-danger:#E05252;--theme-code-bg:#F5F0F2;
+  --syntax-keyword:#C586C0;--syntax-string:#CE9178;--syntax-number:#B5CEA8;--syntax-comment:#6A9955;--syntax-function:#DCDCAA;--syntax-variable:#9CDCFE;--syntax-operator:#D4D4D4;
+  --status-success:#2E9E6B;--status-warning:#E0A428;--status-info:#4A8FD1;
+}
+/* ===== Classic: خاکستری تیره و نقره‌ای ===== */
+body[data-theme="classic"]{
+  --theme-accent:#8C8C8C;--theme-accent-2:#B8B8B8;--theme-highlight:#E0E0E0;--theme-extra:#4A4A4A;
+  --theme-bg:#131313;--theme-panel:#1C1C1C;--theme-panel-2:#262626;--theme-border:#333333;
+  --theme-text:#E8E8E8;--theme-muted:#A0A0A0;--theme-danger:#E05252;--theme-code-bg:#0c0c0c;
+  --syntax-keyword:#C586C0;--syntax-string:#CE9178;--syntax-number:#B5CEA8;--syntax-comment:#6A9955;--syntax-function:#DCDCAA;--syntax-variable:#9CDCFE;--syntax-operator:#D4D4D4;
+  --status-success:#2E9E6B;--status-warning:#E0A428;--status-info:#4A8FD1;
+}
+body[data-theme="modern"] html,body[data-theme="modern"]{background:var(--theme-bg);color:var(--theme-text)}
+body[data-theme="modern"] #app{background:linear-gradient(145deg,#F5F9FF 0%,#FFFFFF 55%,#EAF3FF 100%)}
+body[data-theme="classic"] #app{background:linear-gradient(145deg,#131313 0%,#1C1C1C 55%,#262626 100%)}
+body[data-theme="modern"] header{background:linear-gradient(120deg,#FFFFFF 0%,#EAF3FF 55%,#D6E6F7 100%) !important;border-bottom-color:#0066CC !important}
+body[data-theme="classic"] header{background:linear-gradient(120deg,#131313 0%,#262626 55%,#4A4A4A 100%) !important;border-bottom-color:#8C8C8C !important}
+body[data-theme="modern"] footer{background:#FFFFFF !important;border-top-color:#D6E6F7 !important}
+body[data-theme="modern"] #input{background:#FFFFFF !important;border-color:#D6E6F7 !important;color:#0A1B2E !important}
+body[data-theme="modern"] .msg.bot{background:#FFFFFF !important;border-color:#D6E6F7 !important;color:#0A1B2E !important;box-shadow:0 5px 18px rgba(0,102,204,.07)}
+body[data-theme="modern"] .msg.user{background:#0066CC !important;border-color:#0066CC !important;color:#FFFFFF !important}
+body[data-theme="classic"] .msg.bot{background:#1C1C1C !important;border-color:#333333 !important;color:#E8E8E8 !important}
+body[data-theme="classic"] .msg.user{background:#4A4A4A !important;border-color:#8C8C8C !important;color:#FFFFFF !important}
+body[data-theme="modern"] #send,body[data-theme="classic"] #send{background:linear-gradient(135deg,var(--theme-accent),var(--theme-accent-2)) !important;color:#FFFFFF !important;border-color:var(--theme-accent) !important}
+body[data-theme="modern"] #drawer{background:#FFFFFF !important;border-left-color:#D6E6F7 !important;color:#0A1B2E !important}
+body[data-theme="classic"] #drawer{background:linear-gradient(145deg,#131313,#1C1C1C,#262626) !important;border-left-color:#4A4A4A !important}
+body[data-theme="modern"] #drawer .btn,body[data-theme="classic"] #drawer .btn,body[data-theme="modern"] #drawer .progress-item button,body[data-theme="classic"] #drawer .progress-item button{background:var(--theme-accent) !important;color:#FFFFFF !important;border-color:var(--theme-accent) !important}
+body[data-theme="modern"] #drawer .btn.ghost,body[data-theme="classic"] #drawer .btn.ghost{background:transparent !important;color:var(--theme-accent-2) !important;border-color:var(--theme-accent) !important}
+body[data-theme="modern"] #drawer .progress-item,body[data-theme="modern"] #drawer .glossary-item,body[data-theme="modern"] #drawer .badge,body[data-theme="modern"] #drawer .certificate-item{background:#FFFFFF !important;border-color:#D6E6F7 !important;color:#0A1B2E !important}
+body[data-theme="modern"] #drawer .field input,body[data-theme="modern"] #drawer #searchBox,body[data-theme="modern"] #drawer #themeSelect{background:#F5F9FF !important;color:#0A1B2E !important;border-color:#D6E6F7 !important}
+body[data-theme="modern"] .title,body[data-theme="modern"] .burger{color:#0066CC !important}
+body[data-theme="classic"] .title,body[data-theme="classic"] .burger{color:#B8B8B8 !important}
+body[data-theme="modern"] .xp-bar-fill,body[data-theme="classic"] .xp-bar-fill{background:var(--theme-accent-2) !important}
+body[data-theme="modern"] .quiz button.correct,body[data-theme="classic"] .quiz button.correct{background:#2E9E6B !important;border-color:#2E9E6B !important;color:#FFFFFF !important}
+body[data-theme="modern"] .quiz button.wrong,body[data-theme="classic"] .quiz button.wrong{background:#E05252 !important;border-color:#E05252 !important;color:#FFFFFF !important}
+body[data-theme="modern"] #toast:not(.err),body[data-theme="classic"] #toast:not(.err){background:#2E9E6B !important}
+body[data-theme="modern"] #toast
 /* خوانایی و هویت رنگی جدید: مدرن روشن، کلاسیک/زرشکی تاریک */
 body[data-theme="modern"]{
   --theme-accent:#8E1B3A;--theme-accent-2:#C24A6B;--theme-highlight:#C9A227;--theme-extra:#5E0F26;
@@ -712,6 +804,129 @@ body[data-theme="modern"] .msg pre.cn-example-code .cn-variable,body[data-theme=
 body[data-theme="modern"] .msg pre.cn-example-code .cn-operator,body[data-theme="classic"] .msg pre.cn-example-code .cn-operator{color:var(--syntax-operator) !important}
 body[data-theme="modern"] #splash{background:linear-gradient(145deg,#FAF7F8,#EAD5DC 58%,#FFFFFF) !important}
 body[data-theme="classic"] #splash{background:radial-gradient(circle at 18% 18%,#B8325A44,transparent 30%),linear-gradient(145deg,#151013,#2E2429 58%,#5E0F26) !important}
+/* ===== Modern: رنگ‌های شاد و متن‌های خوانا روی سفید ===== */
+body[data-theme="modern"] .msg.bot strong,
+body[data-theme="modern"] .msg.bot b{color:var(--theme-accent-2) !important}
+body[data-theme="modern"] .msg.bot em,
+body[data-theme="modern"] .msg.bot i{color:var(--theme-fun-orange) !important}
+body[data-theme="modern"] .msg.bot h1,
+body[data-theme="modern"] .msg.bot h2,
+body[data-theme="modern"] .msg.bot h3{color:var(--theme-accent) !important}
+body[data-theme="modern"] .msg.bot a{color:var(--theme-fun-pink) !important;text-decoration:underline}
+body[data-theme="modern"] .msg.bot code:not(pre code){background:#F0F4FF !important;color:var(--theme-accent) !important;padding:2px 6px;border-radius:4px;font-weight:700}
+body[data-theme="modern"] .msg.bot ul li::marker,
+body[data-theme="modern"] .msg.bot ol li::marker{color:var(--theme-fun-orange)}
+body[data-theme="modern"] .msg.bot blockquote{border-right:3px solid var(--theme-accent-2) !important;padding-right:10px;color:var(--theme-fun-purple) !important;background:#F8F4FF;border-radius:6px;padding:8px 12px}
+
+/* عناوین و برچسب‌های رنگی در drawer */
+body[data-theme="modern"] #drawer h3{color:var(--theme-accent) !important}
+body[data-theme="modern"] .dash-grid span{background:linear-gradient(135deg,#FFFFFF,#F0F4FF) !important;border-color:#D6E6F7 !important}
+body[data-theme="modern"] .dash-grid strong{color:var(--theme-fun-orange) !important}
+body[data-theme="modern"] .badge .badge-icon{color:var(--theme-accent-2)}
+
+/* کوییز: رنگ‌های متنوع */
+body[data-theme="modern"] .quiz button{border-color:#D6E6F7 !important;color:#0A1B2E !important;background:#FFFFFF !important}
+body[data-theme="modern"] .quiz button:hover{background:linear-gradient(135deg,#F0F4FF,#E8F0FE) !important;border-color:var(--theme-accent-2) !important}
+body[data-theme="modern"] .quiz button.correct{background:linear-gradient(135deg,#10B981,#34D399) !important;border-color:#10B981 !important;color:#fff !important}
+body[data-theme="modern"] .quiz button.wrong{background:linear-gradient(135deg,#EF4444,#F87171) !important;border-color:#EF4444 !important;color:#fff !important}
+
+/* ===== Classic: رنگ‌های شاد روی زمینه تیره زرشکی ===== */
+body[data-theme="classic"] .msg.bot strong,
+body[data-theme="classic"] .msg.bot b{color:var(--theme-fun-yellow) !important}
+body[data-theme="classic"] .msg.bot em,
+body[data-theme="classic"] .msg.bot i{color:var(--theme-fun-pink) !important}
+body[data-theme="classic"] .msg.bot h1,
+body[data-theme="classic"] .msg.bot h2,
+body[data-theme="classic"] .msg.bot h3{color:var(--theme-accent-2) !important;text-shadow:0 0 8px rgba(242,166,90,.2)}
+body[data-theme="classic"] .msg.bot a{color:var(--theme-highlight) !important;text-decoration:underline}
+body[data-theme="classic"] .msg.bot code:not(pre code){background:#2E2429 !important;color:var(--theme-highlight) !important;padding:2px 6px;border-radius:4px;font-weight:700;border:1px solid rgba(22,212,192,.25)}
+body[data-theme="classic"] .msg.bot ul li::marker,
+body[data-theme="classic"] .msg.bot ol li::marker{color:var(--theme-accent-2)}
+body[data-theme="classic"] .msg.bot blockquote{border-right:3px solid var(--theme-accent-2) !important;background:#2E2429;color:#F5EBEE !important;border-radius:6px;padding:8px 12px}
+
+/* عناوین و برچسب‌های رنگی در drawer */
+body[data-theme="classic"] #drawer h3{color:var(--theme-accent-2) !important}
+body[data-theme="classic"] .dash-grid span{background:linear-gradient(135deg,#1F171B,#2E2429) !important;border-color:rgba(242,166,90,.3) !important}
+body[data-theme="classic"] .dash-grid strong{color:var(--theme-highlight) !important}
+body[data-theme="classic"] .badge .badge-icon{color:var(--theme-accent-2)}
+body[data-theme="classic"] .glossary-item b,
+body[data-theme="classic"] .g-term b,
+body[data-theme="classic"] .certificate-item .cert-lang{color:var(--theme-highlight) !important}
+
+/* کوییز: رنگ‌های شاد */
+body[data-theme="classic"] .quiz button{border-color:rgba(242,166,90,.35) !important;color:#F5EBEE !important;background:#1F171B !important}
+body[data-theme="classic"] .quiz button:hover{background:linear-gradient(135deg,#2E2429,#3D2E35) !important;border-color:var(--theme-highlight) !important}
+body[data-theme="classic"] .quiz button.correct{background:linear-gradient(135deg,#0E8C5A,#10B981) !important;border-color:#10B981 !important;color:#fff !important}
+body[data-theme="classic"] .quiz button.wrong{background:linear-gradient(135deg,#B91C1C,#EF4444) !important;border-color:#EF4444 !important;color:#fff !important}
+
+/* مدال‌ها با رنگ‌های متنوع */
+body[data-theme="classic"] .badge{border-color:rgba(242,166,90,.3) !important}
+body[data-theme="classic"] .badge:nth-child(3n+1) .badge-icon{filter:drop-shadow(0 0 6px rgba(236,72,153,.35))}
+body[data-theme="classic"] .badge:nth-child(3n+2) .badge-icon{filter:drop-shadow(0 0 6px rgba(22,212,192,.35))}
+body[data-theme="classic"] .badge:nth-child(3n+3) .badge-icon{filter:drop-shadow(0 0 6px rgba(245,197,24,.35))}
+
+/* ===== خوانایی متن روی کارت سفید Modern ===== */
+body[data-theme="modern"] .msg.bot,
+body[data-theme="modern"] .msg.bot p,
+body[data-theme="modern"] .msg.bot div:not(.quiz),
+body[data-theme="modern"] .msg.bot span:not(.cn-keyword):not(.cn-string):not(.cn-comment):not(.cn-number):not(.cn-function):not(.cn-variable):not(.cn-operator):not(.cn-class):not(.cn-builtin):not(.cn-decorator):not(.cn-param):not(.cn-constant){
+  color:#0A1B2E !important;
+}
+/* ===== کد مثال‌ها با رنگ‌های واضح (Dracula) — Modern ===== */
+body[data-theme="modern"] .msg pre.cn-example-code{background:#0a0a0a !important;border:1px solid #333333 !important;border-left:3px solid #0066CC !important;border-radius:8px !important;color:#ffffff !important;text-shadow:none !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-keyword{color:#FF79C6 !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-string{color:#FFB86C !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-number{color:#BD93F9 !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-comment{color:#6272A4 !important;font-style:italic !important;font-weight:700 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-function{color:#F1FA8C !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-variable{color:#8BE9FD !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-operator{color:#FF5555 !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-class{color:#50FA7B !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-builtin{color:#8BE9FD !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-decorator{color:#F1FA8C !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-param{color:#FFB86C !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-constant{color:#BD93F9 !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-green{color:#50FA7B !important;font-weight:800 !important}
+body[data-theme="modern"] .msg pre.cn-example-code .cn-red{color:#FF5555 !important;font-weight:800 !important}
+
+/* ===== کد مثال‌ها با رنگ‌های واضح (Dracula) — Classic ===== */
+body[data-theme="classic"] .msg pre.cn-example-code{background:#0a0a0a !important;border:1px solid #2a2a2a !important;border-left:3px solid var(--theme-accent) !important;border-radius:8px !important;color:#ffffff !important;text-shadow:none !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-keyword{color:#FF79C6 !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-string{color:#FFB86C !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-number{color:#BD93F9 !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-comment{color:#6272A4 !important;font-style:italic !important;font-weight:700 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-function{color:#F1FA8C !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-variable{color:#8BE9FD !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-operator{color:#FF5555 !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-class{color:#50FA7B !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-builtin{color:#8BE9FD !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-decorator{color:#F1FA8C !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-param{color:#FFB86C !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-constant{color:#BD93F9 !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-green{color:#50FA7B !important;font-weight:800 !important}
+body[data-theme="classic"] .msg pre.cn-example-code .cn-red{color:#FF5555 !important;font-weight:800 !important}
+
+/* ===== ستاره‌های انتخاب درس — Modern (قرمز) ===== */
+body[data-theme="modern"] .lesson-star,
+body[data-theme="modern"] .lesson-star *{color:#DC2626 !important;font-weight:800 !important}
+body[data-theme="modern"] .lesson-star{border-color:#DC2626 !important;background:linear-gradient(135deg,#FEF2F2,#FEE2E2) !important}
+body[data-theme="modern"] .lesson-star:hover,
+body[data-theme="modern"] .lesson-star:hover *{color:#B91C1C !important}
+body[data-theme="modern"] .lesson-star:hover{background:linear-gradient(135deg,#FEE2E2,#FECACA) !important;border-color:#B91C1C !important}
+body[data-theme="modern"] .lesson-star.active,
+body[data-theme="modern"] .lesson-star.active *{color:#FFFFFF !important;font-weight:800 !important}
+body[data-theme="modern"] .lesson-star.active{background:linear-gradient(135deg,#DC2626,#EF4444) !important;border-color:#DC2626 !important;box-shadow:0 3px 12px rgba(220,38,38,.35) !important}
+
+/* ===== ستاره‌های انتخاب درس — Classic (طلایی-نارنجی) ===== */
+body[data-theme="classic"] .lesson-star,
+body[data-theme="classic"] .lesson-star *{color:#F2A65A !important;font-weight:800 !important}
+body[data-theme="classic"] .lesson-star{border-color:#F2A65A !important;background:rgba(242,166,90,.08) !important}
+body[data-theme="classic"] .lesson-star:hover,
+body[data-theme="classic"] .lesson-star:hover *{color:#FFB86C !important}
+body[data-theme="classic"] .lesson-star:hover{background:rgba(242,166,90,.18) !important;border-color:#FFB86C !important}
+body[data-theme="classic"] .lesson-star.active,
+body[data-theme="classic"] .lesson-star.active *{color:#FFFFFF !important;font-weight:800 !important}
+body[data-theme="classic"] .lesson-star.active{background:linear-gradient(135deg,#B8325A,#F2A65A) !important;border-color:#F2A65A !important;box-shadow:0 3px 12px rgba(184,50,90,.4) !important}</style>
 </style>
 </head>
 <body>
